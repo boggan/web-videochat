@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <title>Web Videochat</title>
+    <head>
+        <link rel="stylesheet" href="assets/css/styles.css" />
+        <!-- server generated scripts -->
+        <script src="/socket.io/socket.io.js"></script>
+
+        <!-- bower included files -->
+        <script src="bower_components/requirejs/require.js" data-main="js/main.js"></script>
+
+    </head>
+    <body>
+        <div id="app-container">
+            <!-- Header component -->
+            <wrtc-header v-bind:socket="socket"
+                         v-bind:client-name="clientName"
+                         v-bind:call-active="callActive"
+                         v-on:connect="onConnect"
+                         v-on:disconnect="onDisconnect"
+                         v-on:hang-up="onHangUp"
+                         v-on:error="onError"></wrtc-header>
+
+            <div id="app-content">
+                <div id="side-container" v-show="isConnected()">
+                    <wrtc-video v-show="callActive">
+                    </wrtc-video>
+
+                    <!-- Userlist component -->
+                    <wrtc-userlist v-show="isConnected()"
+                                   v-bind:clients="clients"
+                                   v-bind:socket="socket"
+                                   v-bind:call-active="callActive"
+                                   v-on:call-peer="onCallPeer">
+                    </wrtc-userlist>
+                </div>
+
+                <div id="main-container">
+                    <div v-show="socket == null" id="disconnected-container">
+                       <h1> Please enter a name and press the <pre>connect</pre> button</h1>
+                    </div>
+
+                    <wrtc-chat v-show="isConnected()"
+                               v-bind:chatlogs="chatlogs"
+                               v-on:send-message="onSendMessage">
+                    </wrtc-chat>
+                </div>
+
+                <wrtc-files v-show="isConnected()"
+                            v-bind:call-active="callActive"
+                            v-bind:current-bytes="currentBytes"
+                            v-bind:total-bytes="totalBytes"
+                            v-bind:received-files="receivedFiles"
+                            v-bind:bytes-per-seconds="bytesPerSeconds"
+                            v-on:upload-file="onUploadFile">
+                </wrtc-files>
+
+                <!-- only when call is received -->
+                <component :is="popUpView"
+                            v-show="isConnected()"
+                            v-bind:from-client="fromClient"
+                            v-bind:request-data="requestData"
+                            v-on:offer-response="onRequestResponse">
+                </component>
+
+                <!-- only when an error is shown -->
+                <component :is="errorView"
+                            v-show="errorView"
+                            v-bind:error-msg="errorMsg"
+                            v-on:dismiss-error="onErrorDismissed">
+                </component>
+            </div>
+        </div>
+    </body>
+</html>
