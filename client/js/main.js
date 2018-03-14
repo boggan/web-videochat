@@ -1,9 +1,8 @@
 //==============================================================================
 require.config({
     paths: {
-        jquery: '../bower_components/jquery/dist/jquery',
-        vue: '../bower_components/vue/dist/vue',
-        vueLoader: '../bower_components/requirejs-vue/requirejs-vue'
+        jquery: '../node_modules/jquery/dist/jquery',
+        vue: '../node_modules/vue/dist/vue'
     }
 });
 

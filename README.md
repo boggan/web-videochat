@@ -3,7 +3,6 @@ A WebRTC Video chat application with included file sharing.
 
 ## Dependencies
 - node js (https://nodejs.org/)
-- bower (install via: npm -g install bower)
 
 ## Installation
 
@@ -33,11 +32,11 @@ openssl x509 -req -days 365 -in server.csr -signkey certificates/ca.key -out cer
 ### Client
 
 go to the **client** folder and run the following command:
-- install dependencies via: bower install
+- install dependencies via : npm install
 
 
 ## Launching
 
 Once all the dependencies are installed head over to the **server** folder and launch it via: node main.js
 
-once the server is running, head over to [https://localhost:8080/](http://localhost:8080/) with the browser of your choice (Chrome or Firefox are recommended).
+once the server is running, head over to [https://localhost:8080/](https://localhost:8080/) with the browser of your choice (Chrome or Firefox are recommended).

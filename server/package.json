@@ -1,7 +1,7 @@
 {
-  "name": "node-web-scaffolding-server",
+  "name": "web-videochat-server",
   "version": "1.0.0",
-  "description": "Web Server portion of the Node WebServer scaffolding",
+  "description": "Web Server portion of the web videochat application",
   "main": "js/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,8 +9,8 @@
   "keywords": [
     "Web",
     "Server",
-    "scaffolding",
-    "with",
+    "video",
+    "RTC",
     "REST",
     "API"
   ],

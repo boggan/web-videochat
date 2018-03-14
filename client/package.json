@@ -1,0 +1,27 @@
+{
+  "name": "web-videochat-client",
+  "version": "1.0.0",
+  "description": "Web videochat client app",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/boggan/web-videochat.git"
+  },
+  "keywords": [
+    "web",
+    "rtc",
+    "chat",
+    "video",
+    "transfer"
+  ],
+  "author": "Thomas Lanteigne",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "requirejs": "^2.3.5",
+    "vue": "^2.5.16"
+  }
+}

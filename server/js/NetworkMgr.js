@@ -49,11 +49,11 @@ function cNetworkMgr(i_oApplication) {
         // m_oServer.put(l_rAPIRegExp, _httpAPIResponse);
         // m_oServer.del(l_rAPIRegExp, _httpAPIResponse);
 
-        console.log("NetworkMgr::startServer::Web Server Started http://localhost:" + config.network.server_port + "/");
+        console.log("NetworkMgr::startServer::Web Server Started https://localhost:" + config.network.server_port + "/");
 
         m_oSocketServer = socketio.listen(m_oServer.server);
         _registerSocketIOEvents();
-        console.log("NetworkMgr::startServer::WebSocket Server Started http://localhost:" + config.network.server_port + "/");
+        console.log("NetworkMgr::startServer::WebSocket Server Started https://localhost:" + config.network.server_port + "/");
 
         m_oServer.listen(config.network.server_port);
         return m_oServer;
